@@ -1,28 +1,48 @@
-import React from 'react'
+import React from "react";
+import { Database, Cog, FileOutput } from "lucide-react";
+
+const nodeTypes = [
+  { label: "Input Node", type: "input", icon: <Database size={18} /> },
+  { label: "Process Node", type: "process", icon: <Cog size={18} /> },
+  { label: "Output Node", type: "output", icon: <FileOutput size={18} /> },
+];
 
 const Sidebar = () => {
-  const nodeTypes = ['Input Node', 'Process Node', 'Output Node']
-
   const onDragStart = (event: React.DragEvent, nodeType: string) => {
-    event.dataTransfer.setData('application/reactflow', nodeType)
-    event.dataTransfer.effectAllowed = 'move'
-  }
+    event.dataTransfer.setData("application/reactflow", nodeType);
+    event.dataTransfer.effectAllowed = "move";
+  };
 
   return (
-    <div className="w-64 bg-white border-r p-4 space-y-2">
-      <h2 className="text-lg font-bold mb-4">Nodes</h2>
-      {nodeTypes.map((type) => (
+    <aside
+      className="
+        w-60 bg-gradient-to-b from-gray-900 to-gray-800 text-white 
+        p-4 flex flex-col gap-3 border-r border-gray-700 
+        backdrop-blur-md shadow-lg
+      "
+    >
+      <h3 className="text-lg font-semibold mb-4 tracking-wide text-gray-200">
+        Nodes
+      </h3>
+
+      {nodeTypes.map((node) => (
         <div
-          key={type}
+          key={node.type}
           draggable
-          onDragStart={(e) => onDragStart(e, type)}
-          className="p-2 bg-gray-100 rounded cursor-move hover:bg-gray-200"
+          onDragStart={(e) => onDragStart(e, node.type)}
+          className="
+            cursor-move flex items-center gap-2 
+            bg-gray-700/60 hover:bg-gray-600/60 
+            px-3 py-2 rounded-lg transition-all duration-200
+            border border-gray-600 hover:scale-[1.02]
+          "
         >
-          {type}
+          {node.icon}
+          <span className="text-sm">{node.label}</span>
         </div>
       ))}
-    </div>
-  )
-}
+    </aside>
+  );
+};
 
-export default Sidebar
+export default Sidebar;
