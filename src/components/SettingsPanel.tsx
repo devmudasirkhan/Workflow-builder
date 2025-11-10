@@ -21,7 +21,6 @@ const SettingsPanel: React.FC<Props> = ({ selectedNode, onUpdateNode, onDeleteNo
     <div className="w-64 bg-white border-l border-gray-200 p-4 flex flex-col gap-4 shadow-inner">
       <h3 className="text-base font-semibold text-gray-700 mb-2">Node Settings</h3>
 
-      {/* Label */}
       <div>
         <label className="block text-xs font-semibold text-gray-500 mb-1">Label</label>
         <input
@@ -31,7 +30,6 @@ const SettingsPanel: React.FC<Props> = ({ selectedNode, onUpdateNode, onDeleteNo
         />
       </div>
 
-      {/* Node Type */}
       <div>
         <label className="block text-xs font-semibold text-gray-500 mb-1">Type</label>
         <p className="text-sm text-gray-600 capitalize bg-gray-100 px-2 py-1 rounded-md inline-block">
@@ -39,7 +37,6 @@ const SettingsPanel: React.FC<Props> = ({ selectedNode, onUpdateNode, onDeleteNo
         </p>
       </div>
 
-      {/* Node-specific fields */}
       {type === "input" && (
         <div>
           <label className="block text-xs font-semibold text-gray-500 mb-1">Input</label>
@@ -76,7 +73,6 @@ const SettingsPanel: React.FC<Props> = ({ selectedNode, onUpdateNode, onDeleteNo
         </div>
       )}
 
-      {/* Delete Node */}
       <button
         onClick={() => onDeleteNode(id)}
         className="mt-4 bg-red-500 hover:bg-red-600 text-white text-sm font-semibold py-2 rounded-md transition"

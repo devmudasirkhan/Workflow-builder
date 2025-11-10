@@ -109,7 +109,7 @@ const CanvasInner = forwardRef(({ onSelectNode, onUpdateNodeRef }: CanvasEditorP
     event.dataTransfer.dropEffect = "move";
   }, []);
 
-  // ====== ACTIONS ======
+
   const handleUndo = () => {
     if (history.length === 0) return;
     const previous = history[history.length - 1];
@@ -184,22 +184,21 @@ const CanvasInner = forwardRef(({ onSelectNode, onUpdateNodeRef }: CanvasEditorP
 
   onUpdateNodeRef.current = updateNodeData;
 
-  // Attach onChange and onDelete to each node dynamically
   useEffect(() => {
-  setNodes((nds) =>
-    nds.map((node) => ({
-      ...node,
-      data: {
-        ...node.data,
-        onChange: (value: string, field?: string) =>
-          updateNodeData(node.id, field ?? "label", value),
-        onDelete: () => deleteNode(node.id),
-      },
-    }))
-  );
-}, [nodes.length]);
+    setNodes((nds) =>
+      nds.map((node) => ({
+        ...node,
+        data: {
+          ...node.data,
+          onChange: (value: string, field?: string) =>
+            updateNodeData(node.id, field ?? "label", value),
+          onDelete: () => deleteNode(node.id),
+        },
+      }))
+    );
+  }, [nodes.length]);
 
-  // Keyboard Delete support
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Delete" && selectedNodeRef.current) {

@@ -1,3 +1,6 @@
 node_modules
 package-lock.json
 dist
+config.bat
+temp_auto_push.bat
+temp_interactive_push.bat
