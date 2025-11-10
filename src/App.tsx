@@ -20,7 +20,7 @@ const App = () => {
   };
 
   const handleDeleteNode = (id: string) => {
-    canvasRef.current?.handleDeleteNode(id); // ✅ call deleteNode from CanvasEditor
+    canvasRef.current?.handleDeleteNode(id); 
   };
 
   return (
@@ -49,7 +49,7 @@ const App = () => {
       <SettingsPanel
         selectedNode={selectedNode}
         onUpdateNode={handleUpdateNode}
-        onDeleteNode={handleDeleteNode} // ✅ wired up cleanly
+        onDeleteNode={handleDeleteNode}
       />
     </div>
   );

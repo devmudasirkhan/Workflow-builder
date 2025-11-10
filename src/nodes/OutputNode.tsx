@@ -36,7 +36,6 @@ const OutputNode: React.FC<{ data: NodeData }> = ({ data }) => {
         >
             <FileOutput className="text-orange-500 mb-1" size={18} />
 
-            {/* Label */}
             {labelEditing ? (
                 <input
                     value={labelValue}
@@ -59,7 +58,6 @@ const OutputNode: React.FC<{ data: NodeData }> = ({ data }) => {
                 </div>
             )}
 
-            {/* Output field (read-only) */}
             <textarea
                 value={outputValue || "Final output placeholder"}
                 readOnly

@@ -39,7 +39,6 @@ const ProcessNode: React.FC<{ data: NodeData }> = ({ data }) => {
     >
       <Cog className="text-indigo-500 mb-1" size={18} />
 
-      {/* Label */}
       {labelEditing ? (
         <input
           value={labelValue}
@@ -62,7 +61,6 @@ const ProcessNode: React.FC<{ data: NodeData }> = ({ data }) => {
         </div>
       )}
 
-      {/* Template field */}
       <textarea
         value={templateValue}
         onChange={(e) => handleTemplateChange(e.target.value)}

@@ -62,7 +62,6 @@ const InputNode: React.FC<{ data: NodeData }> = ({ data }) => {
                 </div>
             )}
 
-            {/* Input field */}
             <textarea
                 value={inputValue}
                 onChange={(e) => handleInputChange(e.target.value)}
